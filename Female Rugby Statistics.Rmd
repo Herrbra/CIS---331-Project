@@ -4,6 +4,7 @@ author: "Joshua C., Jacob D., Helena GB., Eric W., Brandon H."
 date: "`r Sys.Date()`"
 output: html_document
 ---
+### Title Page
 ###   Female Rugby Statistics
 ###   Course 331 01
 ###   Group Memebers: 
@@ -12,6 +13,8 @@ output: html_document
 - Helena
 - Eric
 - Brandon
+
+- The type of analysis we are doing is withing our area of interest.
 
 # Introduction
 - This set, as its name shows, is based on the fifteens version of rugby, which uses fifteen players on the field at once, with eight substitutes. These rugby games are played by professional rugby players at the world level, with players from different nations. The motivation for the analysis is to determine who the best team in the Female Rugby League is. Our 3 main questions of interest that we are searching for in our data are: 1) Which team has the largest combined margin of victory? (Net) 2) Which venue results in the most points scored? The least? 3) How does being home v.s. away affect win probability?
