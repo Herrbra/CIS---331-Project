@@ -2,8 +2,32 @@
 title: "Female Rugby Statistics"
 author: "Joshua C., Jacob D., Helena GB., Eric W., Brandon H."
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+library(tidyverse)
+library(ggplot2)
+
+# install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load(2022, week = 21)
+
+fifteens <- tuesdata$fifteens
+
+fifteens
+```
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2022, week = 21)
+
+fifteens <- tuesdata$fifteens
+
+fifteens
+```
+
+
 ### Title Page
 ###   Female Rugby Statistics
 ###   Course 331 01
@@ -39,3 +63,16 @@ This will use the data from “home_away_win” and “winner”.
 
 # Data Preparation
 - Before tidying the data, there are no missing values which makes our job easy. We shouldn’t need to overcome any challenge when it comes to tidying the data.
+
+# Exploratory Data Analysis (EDA) and Statistical Analysis
+
+- Question 1: Which team has the largest combined margin of victory? (Team with the most points scored in a season compared to the team with the least points scored)
+
+```{r,echo = FALSE, eval = TRUE, include = TRUE} 
+ggplot(data = fifteens, aes(x = team_1, y = margin_of_victory)) + 
+  geom_point() +
+  ggtitle("Margin of Victory between 1982-2022 for Womens Rugby")
+```
+
+- The team that scored the most points scored 65 and multiple teams scored 0 points during games. 
+
