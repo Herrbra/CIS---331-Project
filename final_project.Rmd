@@ -1,0 +1,246 @@
+---
+title: "Female"
+author: "Joshua C., Jacob D., Helena GB., Eric W., Brandon H."
+group: " Group 5, Section 01"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: yes
+  pdf_document: 
+    latex_engine: xelatex
+    toc: yes
+  word_document: 
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE,
+                      comment = "")
+```
+
+## Executive Summary
+
+Please write your executive summary below. If you prefer, you can type your summary in a text editor, such as Microsoft Word, and paste your final text here.
+Include no more than 1/2 page summarizing the context, the primary questions of interest, the data source, the overall approach, and significant findings and/or recommendations.
+
+# Introduction
+
+Rugby is a sport, similar to American football, where an egg-shaped ball is brought to the desired end of the field to score a touchdown. The biggest difference between football and rugby is ironically the fact that in rugby, the ball can only be moved by running and kicking, rather than throwing. This dataset comes from a tidytuesday submission by ScrumQueens, a leader in women’s rugby databases. This data started being collected for fifteens (fifteen players on the field) in 1982 and has been updated for games as recently as May of this year. 
+
+As with many sports, there are so many different ways to analyze how certain factors affect your win percentage, such as being at home, or even just the venue in general. With this dataset, we aim to discover interesting trends relating to how much teams succeed, where they succeed, and if there is any correlation between various factors that go into each game of rugby played.
+
+
+
+## Womens Rugby Dataset
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+tuesdata <- tidytuesdayR::tt_load(2022, week = 21)
+fifteens <- tuesdata$fifteens
+```
+
+### Raw Data
+```{r}
+fifteens
+```
+
+<br>
+<br>
+
+
+# Exploratory Data Analysis
+
+
+## Fifteens Style Women's Rugby
+
+As data scientists, We have been tasked by the National Rugby Association to look at data from 1982-2022 of all fifteens women rugby matches to see if there are relations between variables. 
+
+The association would like us to look at different venues affect a teams winning to see if any venue has an affect on the outcome. 
+
+
+
+### Summary Table
+
+```{r}
+#TEMP
+ggplot(fifteens, aes(x = venues,)) + geom_bar()
+```
+
+
+### Data Visualization
+
+```{r}
+
+```
+
+
+
+## Question 1
+
+
+**How many distinct teams are in the League?**:
+
+
+**In the fifteens style of Womens there are 63 countries that have womens teams that compete**
+
+
+
+To add additional R code chunks for your work, select `Insert` then `R` from the top of this notebook file or use the keyboard shortcut `Ctrl/cmd` + `Alt/option` + `i`
+
+```{r}
+unique(fifteens$team_1)
+```
+
+
+## Question 2
+
+
+
+**How many distinct tournaments are there?**:
+
+
+
+**There are 39 unique tournaments**:
+
+
+
+
+```{r}
+unique(fifteens$tournament)
+```
+
+
+
+## Question 3
+
+
+
+**How many distinct venues are there?**:
+
+
+
+**There are 543 unique venues that hosted a rugby game**:
+
+
+```{r}
+unique(fifteens$venue)
+```
+
+
+
+
+## Question 4
+
+
+
+**How does being at home v.s. away affect win probability**:
+
+
+
+**Home teams are 1.33 more likely to win verses being away**:
+
+
+
+
+```{r}
+fifteens
+
+table(fifteens$home_away_win)
+
+ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away wins")
+```
+
+
+
+
+## Question 5
+
+
+
+**Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**:
+
+
+
+**There are a lot less tournament games played which makes for less wins**:
+
+
+
+
+```{r}
+ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away Wins")
+
+(wins = FALSE)
+ggplot(data = fifteens, aes(x = tournament != "Friendly")) + geom_bar() + ggtitle("Tournament Wins")
+```
+
+
+You can add as many questions as necessary depending on the questions of interests you're trying to address from your dataset (summary and visualizations).
+
+# Summary of Results  
+
+Please write an executive summary of your overall findings and recommendations here. Think of this section as your closing remarks of a presentation, where you summarize your key findings and make recommendations to improve future work or implementation. 
+
+If you prefer, you can type your summary in a text editor, such as Microsoft Word, and paste your final text here.
+
+When it comes to sports, one of the biggest questions is, "Where are teams most successful". Our research and findings have analyzied where these teams do their best and why that might be. This data is extremely important to the team especially when it determines where they place in tournaments. The goal of this is to see if the teams do better at home or away games. 
+
+We decided on 5 questions to give us a solution to our question of, "Where are teams most successful"?
+
+  1) **How many distinct teams are in the League?**
+  2) **How many distinct tournaments are there?**
+  3) **How many distinct venues are there?**
+  4) **How does being at home v.s. away affect win probability**
+  5) **Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**
+  
+Some important findings from our data analysis were that teams are 1.33 percent more likley to win at home when compared to away games. Also from the graphs in question 5, you can see that they win more on the graph.
+
+Your executive summary must be written in a [professional tone](https://www.universalclass.com/articles/writing/business-writing/appropriate-tone-in-business-communications.htm), with minimal grammatical errors, and should include the following sections:
+
+1. An introduction where you explain the problem statement and goals of your data analysis
+
+    - What problem(s) is this company/team/group trying to solve? Why are they important to their future success?
+  
+    - What was the goal of your analysis? What questions were you trying to answer and why do they matter?
+
+
+2. Highlights and key findings from your Exploratory Data Analysis section 
+    - What were the interesting findings from your analysis and **why are they important**?
+
+    - This section is meant to **establish the need for your recommendations** in the following section
+
+
+3. Your recommendations 
+  
+    - Each recommendation must be supported by your data analysis results 
+
+    - You must clearly explain why you are making each recommendation and which results from your data analysis support this recommendation
+
+    - You must also describe the potential impact of your recommendation:
+      
+      - Why is this a good recommendation? 
+      
+# Conclusion
+The **conclusion** should be a brief recap of what you did, why you did it, and what you found. Please be sure to **proofread** and **spellcheck** your work before your initial submission.
+
+To sum up this project...
+
+\newpage
+
+# Appendix
+
+The **appendix** section should contain any additional code, tables, and graphics that are not explicitly referenced in the narrative of the report.
+
+
+
+
+
+
+
+
+
+
