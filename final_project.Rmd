@@ -187,9 +187,9 @@ Please write an executive summary of your overall findings and recommendations h
 
 If you prefer, you can type your summary in a text editor, such as Microsoft Word, and paste your final text here.
 
-When it comes to sports, one of the biggest questions is, "Where are teams most successful". Our research and findings have analyzied where these teams do their best and why that might be. This data is extremely important to the team especially when it determines where they place in tournaments. The goal of this is to see if the teams do better at home or away games. 
+When it comes to sports, one of the biggest questions is, "Does the venue affect who wins". Our research and findings have analyzed where these teams do their best and why that might be. This data is extremely important to the team especially when it determines where they place in tournaments. The goal of this is to see if the teams do better at home or away games. 
 
-We decided on 5 questions to give us a solution to our question of, "Where are teams most successful"?
+We decided on 5 questions to give us a solution to our question of, "Does the venue affect who wins"?
 
   1) **How many distinct teams are in the League?**
   2) **How many distinct tournaments are there?**
@@ -197,7 +197,15 @@ We decided on 5 questions to give us a solution to our question of, "Where are t
   4) **How does being at home v.s. away affect win probability**
   5) **Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**
   
-Some important findings from our data analysis were that teams are 1.33 percent more likley to win at home when compared to away games. Also from the graphs in question 5, you can see that they win more on the graph.
+Some important findings from our data analysis were that teams are 1.33 percent more likely to win at home when compared to away games. Also from the graphs in question 5, you can see that they win more on the graph. Teams, fans, sponsors, and players are all people who contribute to sports teams. That being said, knowing the teams win probability in specific venues will affect how those factors are played. 
+
+We recommend the team to use these stats and data publicly to show those fans, sponsors, and players where they play the best and why that might be. The impact of knowing this information could cause for a number of things:
+  * What team players play for?
+  * What venue gets sponsored more so a specific team can play more games there?
+  * What team is dominant in one venue over another?
+  * Does being home vs away affect who wins?
+
+This data recommendation can make or break who wins tournaments or major money winning opportunities for the team. That being said, we believe that every sport should have this analysis done to benefit the teams, fans, sponsors, and players.
 
 Your executive summary must be written in a [professional tone](https://www.universalclass.com/articles/writing/business-writing/appropriate-tone-in-business-communications.htm), with minimal grammatical errors, and should include the following sections:
 
@@ -227,7 +235,7 @@ Your executive summary must be written in a [professional tone](https://www.univ
 # Conclusion
 The **conclusion** should be a brief recap of what you did, why you did it, and what you found. Please be sure to **proofread** and **spellcheck** your work before your initial submission.
 
-To sum up this project...
+
 
 \newpage
 
