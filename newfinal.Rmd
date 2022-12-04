@@ -212,14 +212,7 @@ ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Win
 ggplot(data = fifteens, aes(x = tournament != "Friendly")) + geom_bar() + ggtitle("Tournament Wins")
 ```
 
-
-You can add as many questions as necessary depending on the questions of interests you're trying to address from your dataset (summary and visualizations).
-
 # Summary of Results  
-
-Please write an executive summary of your overall findings and recommendations here. Think of this section as your closing remarks of a presentation, where you summarize your key findings and make recommendations to improve future work or implementation. 
-
-If you prefer, you can type your summary in a text editor, such as Microsoft Word, and paste your final text here.
 
 When it comes to sports, one of the biggest questions is, "Does the venue affect who wins". Our research and findings have analyzed where these teams do their best and why that might be. This data is extremely important to the team especially when it determines where they place in tournaments. The goal of this is to see if the teams do better at home or away games. 
 
@@ -240,31 +233,6 @@ We recommend the team to use these stats and data publicly to show those fans, s
   * Does being home vs away affect who wins?
 
 This data recommendation can make or break who wins tournaments or major money winning opportunities for the team. That being said, we believe that every sport should have this analysis done to benefit the teams, fans, sponsors, and players.
-
-Your executive summary must be written in a [professional tone](https://www.universalclass.com/articles/writing/business-writing/appropriate-tone-in-business-communications.htm), with minimal grammatical errors, and should include the following sections:
-
-1. An introduction where you explain the problem statement and goals of your data analysis
-
-    - What problem(s) is this company/team/group trying to solve? Why are they important to their future success?
-  
-    - What was the goal of your analysis? What questions were you trying to answer and why do they matter?
-
-
-2. Highlights and key findings from your Exploratory Data Analysis section 
-    - What were the interesting findings from your analysis and **why are they important**?
-
-    - This section is meant to **establish the need for your recommendations** in the following section
-
-
-3. Your recommendations 
-  
-    - Each recommendation must be supported by your data analysis results 
-
-    - You must clearly explain why you are making each recommendation and which results from your data analysis support this recommendation
-
-    - You must also describe the potential impact of your recommendation:
-      
-      - Why is this a good recommendation? 
       
 # Conclusion
 The **conclusion** should be a brief recap of what you did, why you did it, and what you found. Please be sure to **proofread** and **spellcheck** your work before your initial submission.
@@ -276,13 +244,3 @@ The **conclusion** should be a brief recap of what you did, why you did it, and 
 # Appendix
 
 The **appendix** section should contain any additional code, tables, and graphics that are not explicitly referenced in the narrative of the report.
-
-
-
-
-
-
-
-
-
-
