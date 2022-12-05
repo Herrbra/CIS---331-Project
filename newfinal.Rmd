@@ -25,9 +25,9 @@ knitr::opts_chunk$set(echo = TRUE,
 
 The main goal our group had when analyzing the data was that does the location of the game have any impact of the outcome of match? This is an important question to take into consideration when considering where major games are being held. If a venue is being held closer to one team than the other more of the other teams fans can be there, leading to more of a "home field advantage". When examining this dataset we were hoping to make a correlation so we could prove the statement above. The main questions we were examining to help us prove this were, how does being at home v.s. away affect win probability? Is there a relationship between friendly vs tournament wins/Home_away vs tournament?
 
-Afer performing analysis on our dataset an interesting finding presented itself. That is home teams are 1.33 percent more likely to win. This caught our attention because that it is evidence that helps us more confidently say that venue does play a role on the outcome of the game. We think this matters because sports games are a staple in many world cultures, and outcomes of these games can have strong emotional efffects for the fans. Sports games also have a lot of money surrounding them whether it be betting or a huge income source for that country. 
+After performing analysis on our dataset an interesting finding presented itself. That is home teams are 1.33 percent more likely to win. This caught our attention because that it is evidence that helps us more confidently say that venue does play a role on the outcome of the game. We think this matters because sports games are a staple in many world cultures, and outcomes of these games can have strong emotional effects for the fans. Sports games also have a lot of money surrounding them whether it be betting or a huge income source for that country. 
 
-We recommend that all tournament games be held in a "netural zone". We recommend this for the fact that home teams are more likely to win so to be far to both sides both teams need to have the same advantages.  
+We recommend that all tournament games be held in a "neutral zone". We recommend this for the fact that home teams are more likely to win so to be far to both sides both teams need to have the same advantages.  
 
 
 # Introduction
