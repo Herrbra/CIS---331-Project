@@ -1,0 +1,231 @@
+---
+title: "Women's Rugby Fifteens"
+author: "Joshua C., Jacob D., Helena GB., Eric W., Brandon H."
+group: " Group 5, Section 01"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document: 
+    latex_engine: xelatex
+    toc: yes
+  html_document: 
+    toc: yes
+  word_document: 
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE,
+                      comment = "")
+```
+
+## Executive Summary
+
+The main goal our group had when analyzing the data was asking, does the location of the game have any impact on the outcome of the match? This is an important question to take into consideration when deciding where major games are being held. If a venue is being held closer to one team than the other more of the other teams fans can be there, leading to more of a "home field advantage". When examining this dataset, we were hoping to make a correlation so we could prove the statement above. The main questions we were examining to help us prove this were, how is being at home v.s. away affect win probability? Is there a relationship between friendly vs tournament wins/Home_away vs tournament?
+
+After performing analysis on our dataset, an interesting finding presented itself. That is, home teams are 1.33 percent more likely to win. This caught our attention because it is evidence that helps us more confidently say that the venue does play a role in the outcome of the game. We think this matters because sports games are a staple in many world cultures, and outcomes of these games can have strong emotional effects for the fans. Sports games also have a lot of money surrounding them whether it be betting or a huge income source for that country. 
+
+We recommend that all tournament games be held in a "neutral zone". We recommend this for the fact that home teams are more likely to win so to be far to both sides both teams need to have the same advantages.  
+
+\newpage
+# Introduction
+
+Rugby is a sport, similar to American football, where an egg-shaped ball is brought to the desired end of the field to score a touchdown. The biggest difference between football and rugby is ironically the fact that in rugby, the ball can only be moved by running and kicking, rather than throwing. This dataset comes from a tidytuesday submission by ScrumQueens, a leader in women’s rugby databases. This data started being collected for fifteens (fifteen players on the field) in 1982 and has been updated for games as recently as May of this year. 
+
+As with many sports, there are so many different ways to analyze how certain factors affect your win percentage, such as being at home, or even just the venue in general. With this dataset, we aim to discover interesting trends relating to how much teams succeed, where they succeed, and if there is any correlation between various factors that go into each game of rugby played.
+
+
+```{r, echo=FALSE, eval=TRUE, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+tuesdata <- tidytuesdayR::tt_load(2022, week = 21)
+fifteens <- tuesdata$fifteens
+```
+
+```{r, echo=FALSE, eval=TRUE, include=FALSE}
+fifteens
+```
+
+<br>
+<br>
+
+
+# Exploratory Data Analysis
+
+
+## Fifteens Style Women's Rugby
+
+As data scientists, We have been tasked by the National Rugby Association to look at data from 1982-2022 of all fifteens women's rugby matches to see if there are relations between variables. 
+
+The association would like us to look at different venues affecting a team's winning to see if any venue has an affect on the outcome. 
+
+
+
+### Summary Table
+
+```{r}
+#TEMP
+##ggplot(fifteens, aes(x = venues,)) + geom_bar()
+```
+
+
+### Data Visualization
+
+```{r}
+```
+
+
+
+## Question 1
+
+
+**How many distinct teams are in the League?**:
+
+
+**In the fifteens style of women's rugby there are 63 countries that have teams that compete**
+
+
+```{r, echo=FALSE, eval=TRUE}
+unique(fifteens$team_1)
+```
+
+
+## Question 2
+
+
+
+**How many distinct tournaments are there?**:
+
+
+
+**There are 39 unique tournaments. Not all teams are allowed to play in every tourney, but every team participates in multiple tourneys. **:
+
+
+
+
+```{r, echo=FALSE, eval=TRUE}
+unique(fifteens$tournament)
+```
+
+
+
+## Question 3
+
+
+
+**How many distinct venues are there?**:
+
+
+
+**There are 543 unique venues that hosted a rugby game. Being a popular sport in many different countries, there is a wide variety of places to play their games.**:
+
+
+```{r, echo=FALSE, eval=TRUE}
+length(unique(fifteens$venue))
+```
+
+## EDIT THIS TO FORMAT WITH NO TEXT, ONLY RESULTS
+```{r, echo=FALSE, eval=TRUE}
+##Question 3. Which venue results in the most points scored? The least?
+#add a column with the sum of the score of both teams
+s <- fifteens[na.rm = TRUE] %>% 
+      rowwise() %>% 
+      mutate(
+        final_score = sum(as.integer(score_1),as.integer(score_2)),
+        
+      )
+##MAX
+#obtain the max number of the column
+max_number <-  max(s$final_score,na.rm = TRUE)
+df<- s[s$final_score == max_number,]
+
+#select the value that has the max number
+df_venue_max<- df %>%
+  select(venue)
+  
+#eliminate the N/A values
+df_max <- df_venue_max[complete.cases(df_venue_max),]
+df_max
+
+##MIN- review
+#obtain the minimum number of the column
+min_number <-  min(s$final_score,na.rm = TRUE)
+df1<- s[s$final_score == min_number,]
+
+#select the value that has the min number
+df_venue_min <- df1 %>%
+  select(venue)
+  
+#eliminate the N/A values
+df_min <- df_venue_min[complete.cases(df_venue_min),]
+df_min
+```
+
+## Question 4
+
+
+
+**How is being at home v.s. away affect win probability**:
+
+
+
+**Home teams are 1.33 more likely to win verses being away**:
+
+
+
+
+```{r, echo=FALSE, eval=TRUE}
+table(fifteens$home_away_win)
+ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away wins")
+```
+
+
+
+
+## Question 5
+
+
+
+**Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**:
+
+
+
+**There are a lot less tournament games played which makes for less wins**:
+
+
+
+
+```{r, echo=FALSE, eval=TRUE}
+ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away Wins")
+(wins = FALSE)
+ggplot(data = fifteens, aes(x = tournament != "Friendly")) + geom_bar() + ggtitle("Tournament Wins")
+```
+
+\newpage
+# Summary of Results  
+
+When it comes to sports, one of the biggest questions is, "Does the venue affect who wins". Our research and findings have analyzed where these teams do their best and why that might be. This data is extremely important to the team especially when it determines where they place in tournaments. The goal of this is to see if the teams do better at home or away games. 
+
+We decided on 5 questions to give us a solution to our question of, "Does the venue affect who wins"?
+
+  1) **How many distinct teams are in the League?**
+  2) **How many distinct tournaments are there?**
+  3) **How many distinct venues are there?**
+  4) **How is being at home v.s. away affect win probability**
+  5) **Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**
+  
+Some important findings from our data analysis were that teams are 1.33 percent more likely to win at home when compared to away games. Also from the graphs in question 5, you can see that they win more on the graph. Teams, fans, sponsors, and players are all people who contribute to sports teams. That being said, knowing the teams win probability in specific venues will affect how those factors are played. 
+
+We recommend the team to use these stats and data publicly to show those fans, sponsors, and players where they play the best and why that might be. The impact of knowing this information could cause for a number of things:
+  * What team players play for?
+  * What venue gets sponsored more so a specific team can play more games there?
+  * What team is dominant in one venue over another?
+  * Does being home vs away affect who wins?
+
+This data recommendation can make or break who wins tournaments or major money winning opportunities for the team. That being said, we believe that every sport should have this analysis done to benefit the teams, fans, sponsors, and players.
+      
+# Conclusion
+
+After finishing this project, we created graphs to prove our question of, "is there home field advantage", analyzed data, and created a story and goal with the data to tell the audience why being at home vs away is better. We did find that you have a 1.33 percent chance of winning at home compared to away.
