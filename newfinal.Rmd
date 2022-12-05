@@ -23,9 +23,9 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Executive Summary
 
-The main goal our group had when analyzing the data was that does the location of the game have any impact of the outcome of match? This is an important question to take into consideration when considering where major games are being held. If a venue is being held closer to one team than the other more of the other teams fans can be there, leading to more of a "home field advantage". When examining this dataset we were hoping to make a correlation so we could prove the statement above. The main questions we were examining to help us prove this were, how does being at home v.s. away affect win probability? Is there a relationship between friendly vs tournament wins/Home_away vs tournament?
+The main goal our group had when analyzing the data was that does the location of the game have any impact on the outcome of the match? This is an important question to take into consideration when considering where major games are being held. If a venue is being held closer to one team than the other more of the other teams fans can be there, leading to more of a "home field advantage". When examining this dataset we were hoping to make a correlation so we could prove the statement above. The main questions we were examining to help us prove this were, how is being at home v.s. away affect win probability? Is there a relationship between friendly vs tournament wins/Home_away vs tournament?
 
-After performing analysis on our dataset an interesting finding presented itself. That is home teams are 1.33 percent more likely to win. This caught our attention because that it is evidence that helps us more confidently say that venue does play a role on the outcome of the game. We think this matters because sports games are a staple in many world cultures, and outcomes of these games can have strong emotional effects for the fans. Sports games also have a lot of money surrounding them whether it be betting or a huge income source for that country. 
+After performing analysis on our dataset an interesting finding presented itself. That is, home teams are 1.33 percent more likely to win. This caught our attention because it is evidence that helps us more confidently say that the venue does play a role in the outcome of the game. We think this matters because sports games are a staple in many world cultures, and outcomes of these games can have strong emotional effects for the fans. Sports games also have a lot of money surrounding them whether it be betting or a huge income source for that country. 
 
 We recommend that all tournament games be held in a "neutral zone". We recommend this for the fact that home teams are more likely to win so to be far to both sides both teams need to have the same advantages.  
 
@@ -40,7 +40,6 @@ As with many sports, there are so many different ways to analyze how certain fac
 ```{r, echo=FALSE, eval=TRUE, include=FALSE}
 library(tidyverse)
 library(ggplot2)
-
 tuesdata <- tidytuesdayR::tt_load(2022, week = 21)
 fifteens <- tuesdata$fifteens
 ```
@@ -58,9 +57,9 @@ fifteens
 
 ## Fifteens Style Women's Rugby
 
-As data scientists, We have been tasked by the National Rugby Association to look at data from 1982-2022 of all fifteens women rugby matches to see if there are relations between variables. 
+As data scientists, We have been tasked by the National Rugby Association to look at data from 1982-2022 of all fifteens women's rugby matches to see if there are relations between variables. 
 
-The association would like us to look at different venues affect a teams winning to see if any venue has an affect on the outcome. 
+The association would like us to look at different venues affecting a team's winning to see if any venue has an affect on the outcome. 
 
 
 
@@ -75,7 +74,6 @@ The association would like us to look at different venues affect a teams winning
 ### Data Visualization
 
 ```{r}
-
 ```
 
 
@@ -149,7 +147,7 @@ df<- s[s$final_score == max_number,]
 #select the value that has the max number
 df_venue_max<- df %>%
   select(venue)
-
+  
 #eliminate the N/A values
 df_max <- df_venue_max[complete.cases(df_venue_max),]
 df_max
@@ -162,7 +160,7 @@ df1<- s[s$final_score == min_number,]
 #select the value that has the min number
 df_venue_min <- df1 %>%
   select(venue)
-
+  
 #eliminate the N/A values
 df_min <- df_venue_min[complete.cases(df_venue_min),]
 df_min
@@ -172,7 +170,7 @@ df_min
 
 
 
-**How does being at home v.s. away affect win probability**:
+**How is being at home v.s. away affect win probability**:
 
 
 
@@ -183,9 +181,7 @@ df_min
 
 ```{r, echo=FALSE, eval=TRUE}
 fifteens
-
 table(fifteens$home_away_win)
-
 ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away wins")
 ```
 
@@ -207,7 +203,6 @@ ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Win
 
 ```{r, echo=FALSE, eval=TRUE}
 ggplot(data = fifteens, aes(x = home_away_win)) + geom_bar() + ggtitle("Home Wins vs. Away Wins")
-
 (wins = FALSE)
 ggplot(data = fifteens, aes(x = tournament != "Friendly")) + geom_bar() + ggtitle("Tournament Wins")
 ```
@@ -221,7 +216,7 @@ We decided on 5 questions to give us a solution to our question of, "Does the ve
   1) **How many distinct teams are in the League?**
   2) **How many distinct tournaments are there?**
   3) **How many distinct venues are there?**
-  4) **How does being at home v.s. away affect win probability**
+  4) **How is being at home v.s. away affect win probability**
   5) **Is there a relationship between friendly vs tournament wins?/Home_away vs tournament?**
   
 Some important findings from our data analysis were that teams are 1.33 percent more likely to win at home when compared to away games. Also from the graphs in question 5, you can see that they win more on the graph. Teams, fans, sponsors, and players are all people who contribute to sports teams. That being said, knowing the teams win probability in specific venues will affect how those factors are played. 
@@ -235,8 +230,8 @@ We recommend the team to use these stats and data publicly to show those fans, s
 This data recommendation can make or break who wins tournaments or major money winning opportunities for the team. That being said, we believe that every sport should have this analysis done to benefit the teams, fans, sponsors, and players.
       
 # Conclusion
-The **conclusion** should be a brief recap of what you did, why you did it, and what you found. Please be sure to **proofread** and **spellcheck** your work before your initial submission.
 
+After finishing this project, we created graphs to prove our question of, "is there home field advantage", analyzed data, and created a story and goal with the data to tell the audience why being at home vs away is better. We did find that you have a 1.33 percent chance of winning at home compared to away.
 
 
 \newpage
