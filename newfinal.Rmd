@@ -232,10 +232,3 @@ This data recommendation can make or break who wins tournaments or major money w
 # Conclusion
 
 After finishing this project, we created graphs to prove our question of, "is there home field advantage", analyzed data, and created a story and goal with the data to tell the audience why being at home vs away is better. We did find that you have a 1.33 percent chance of winning at home compared to away.
-
-
-\newpage
-
-# Appendix
-
-The **appendix** section should contain any additional code, tables, and graphics that are not explicitly referenced in the narrative of the report.
