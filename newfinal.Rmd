@@ -67,7 +67,7 @@ The association would like us to look at different venues affecting a team's win
 
 ```{r}
 #TEMP
-##ggplot(fifteens, aes(x = venues,)) + geom_bar()
+##ggplot(fifteens, aes(x = venue)) + geom_bar()
 ```
 
 
