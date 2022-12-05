@@ -74,6 +74,21 @@ The association would like us to look at different venues affecting a team's win
 ### Data Visualization
 
 ```{r}
+ggplot(fifteens, aes(x = winner, y = margin_of_victory)) +
+  geom_point() +
+  scale_color_brewer() +
+  labs(title = "The winners Margin of Victory")
+  
+ggplot(fifteens, aes(x = margin_of_victory)) +
+  geom_bar() +
+coord_flip() +
+  ggtitle("Margin of Victory for Every Game")
+
+ggplot(fifteens, aes(x = date, fill = winner)) + geom_bar(position = "fill") +
+  ggtitle("Country's Wins Throughout Years")
+  
+ggplot(fifteens, aes(x = date, y = home_away_win)) + geom_boxplot()+
+  ggtitle("Home vs Away Wins Over Time")
 ```
 
 
